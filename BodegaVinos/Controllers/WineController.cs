@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using BodegaVinos.Data.Entities;
+using BodegaVinos.Data.Repository;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BodegaVinos.Controllers
@@ -8,9 +10,11 @@ namespace BodegaVinos.Controllers
     public class WineController : ControllerBase
     {
         [HttpGet]
-        public IActionResult GetWines()
+        public IActionResult Get()
         {
-            return Ok("Hola");
+            WineRepository wineRepository = new WineRepository();
+            List<Wine> wines = wineRepository.Wines;
+            return Ok(wines);
         }
     }
 }

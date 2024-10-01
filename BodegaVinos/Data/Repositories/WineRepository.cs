@@ -1,4 +1,5 @@
 ﻿using BodegaVinos.Data.Entities;
+using System.Security.Cryptography.X509Certificates;
 
 namespace BodegaVinos.Data.Repository
 {

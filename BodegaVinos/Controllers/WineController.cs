@@ -1,5 +1,6 @@
 ﻿using BodegaVinos.Data.Entities;
 using BodegaVinos.Data.Repository;
+using BodegaVinos.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,12 +10,15 @@ namespace BodegaVinos.Controllers
     [ApiController]
     public class WineController : ControllerBase
     {
+        private readonly WineService _wineService;
+        public WineController(WineService wineService) {
+            _wineService = wineService;
+        }
+
         [HttpGet]
         public IActionResult Get()
         {
-            WineRepository wineRepository = new WineRepository();
-            List<Wine> wines = wineRepository.Wines;
-            return Ok(wines);
+            return Ok(_wineService.GetWines());
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using BodegaVinos.Data.Repository;
+using BodegaVinos.Models.DTO;
 
 namespace BodegaVinos.Services
 {
@@ -9,5 +10,10 @@ namespace BodegaVinos.Services
             _userRepository = userRepository;
         }
 
+        public bool validateUser(LoginDTO loginData)
+        {
+            var user = _userRepository.GetUserByUsername(loginData.Username);
+            return user != null && user.Password == loginData.Password;
+        }
     }
 }

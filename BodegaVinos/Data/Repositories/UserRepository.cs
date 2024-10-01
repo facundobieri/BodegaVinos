@@ -14,5 +14,9 @@ namespace BodegaVinos.Data.Repository
                 new User { Id = 2, Username = "user", Password = "user" }
             };
         }
+        public User GetUserByUsername(string username)
+        {
+            return Users.FirstOrDefault(u => u.Username == username);
+        }
     }
 }

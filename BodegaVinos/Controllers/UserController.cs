@@ -1,4 +1,5 @@
-﻿using BodegaVinos.Services;
+﻿using BodegaVinos.Models.DTO;
+using BodegaVinos.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,9 +15,13 @@ namespace BodegaVinos.Controllers
         }
 
         [HttpPost]
-        public IActionResult Login()
+        public IActionResult Login([FromBody] LoginDTO loginData)
         {
-            return Ok("Login");
+            if (_userService.validateUser(loginData))
+            {
+                return Ok("Login Successful");
+            }
+            return Unauthorized("Invalid username or password");
         }
 
     }

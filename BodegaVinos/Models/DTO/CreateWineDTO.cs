@@ -2,7 +2,7 @@
 
 namespace BodegaVinos.Models.DTO
 {
-    public class RegisterWineDTO
+    public class CreateWineDTO
     {
         [Required]
         public string Name { get; set; }

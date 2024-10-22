@@ -1,22 +1,27 @@
 ﻿using BodegaVinos.Data.Entities;
+using BodegaVinos.Services.Interfaces;
 
 namespace BodegaVinos.Data.Repository
 {
-    public class UserRepository
+    public class UserRepository : IUserRepository
     {
-        public List<User> Users { get; set; }
-
-        public UserRepository()
+        private readonly BodegaDbContext _context;
+        public UserRepository(BodegaDbContext context)
         {
-            Users = new List<User>()
-            {
-                new User { Id = 1, Username = "admin", Password = "admin" },
-                new User { Id = 2, Username = "user", Password = "user" }
-            };
+            _context = context;
         }
-        public User GetUserByUsername(string username)
+        public List<User> GetUsers()
         {
-            return Users.FirstOrDefault(u => u.Username == username);
+            return _context.Users.ToList();
+        }
+        public User? GetUserByUsername(string username)
+        {
+            return _context.Users.FirstOrDefault(u => u.Username == username);
+        }
+        public void CreateUser(User user)
+        {
+            _context.Users.Add(user);
+            _context.SaveChanges();
         }
     }
 }

@@ -1,7 +1,12 @@
-﻿namespace BodegaVinos.Data.Entities
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace BodegaVinos.Data.Entities
 {
     public class Wine
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
         // El nombre del vino, requerido

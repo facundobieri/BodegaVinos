@@ -5,9 +5,9 @@ namespace BodegaVinos.Services.Interfaces
 {
     public interface IWineService
     {
-        List<Wine> GetWines();
-        void CreateWine(CreateWineDTO createWineDTO);
-        void AddStockById(int id, int stock);
-        void DeleteStockById(int id);
+        public List<Wine> GetWines();
+        public void CreateWine(CreateWineDTO createWineDTO);
+        public void AddStockById(int id, int stock);
+        public void RemoveStockById(int id, int stock);
     }
 }

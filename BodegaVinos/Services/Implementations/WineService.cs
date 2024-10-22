@@ -17,6 +17,12 @@ namespace BodegaVinos.Services.Implementations
         {
             return _wineRepository.GetWines();
         }
+
+        public List<Wine> GetWinesByVariety(string variety)
+        {
+            return _wineRepository.GetWinesByVariety(variety);
+        }
+
         public void CreateWine(CreateWineDTO createWineDTO)
         {
             var wine = new Wine

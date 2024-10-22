@@ -22,6 +22,14 @@ namespace BodegaVinos.Controllers
         {
             return Ok(_wineService.GetWines());
         }
+
+        [HttpGet("{Variety}")]
+        public IActionResult GetByVariety(string variety)
+        {
+            return Ok(_wineService.GetWinesByVariety(variety));
+        }
+
+
         [HttpPost]
         public IActionResult NewWine(CreateWineDTO createWineDTO)
         {

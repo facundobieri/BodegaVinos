@@ -33,6 +33,10 @@ namespace BodegaVinos.Data.Repository
         {
             return _context.Wines.FirstOrDefault(w => w.Id == id);
         }
+        public List<Wine> GetWinesByVariety(string variety)
+        {
+            return _context.Wines.Where(w => w.Variety == variety).ToList();
+        }
     }
 }
 

@@ -4,9 +4,10 @@ namespace BodegaVinos.Services.Interfaces
 {
     public interface IWineRepository
     {
-        List<Wine> GetWines();
-        void UpdateWine(Wine wine);
-        void CreateWine(Wine wine);
-        Wine GetWineById(int id);
+        public List<Wine> GetWines();
+        public void UpdateWine(Wine wine);
+        public void CreateWine(Wine wine);
+        public Wine GetWineById(int id);
+        public List<Wine> GetWinesByVariety(string variety);
     }
 }

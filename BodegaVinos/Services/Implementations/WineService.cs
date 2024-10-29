@@ -7,8 +7,8 @@ namespace BodegaVinos.Services.Implementations
 {
     public class WineService : IWineService
     {
-        private readonly WineRepository _wineRepository;
-        public WineService(WineRepository wineRepository)
+        private readonly IWineRepository _wineRepository;
+        public WineService(IWineRepository wineRepository)
         {
             _wineRepository = wineRepository;
         }

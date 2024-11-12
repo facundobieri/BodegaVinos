@@ -14,14 +14,19 @@ namespace BodegaVinos.Data.Repository
         {
             return _context.Users.ToList();
         }
-        public User? GetUserByUsername(string username)
-        {
-            return _context.Users.FirstOrDefault(u => u.Username == username);
-        }
+        //public User? GetUserByUsername(string username)
+        //{
+        //    return _context.Users.FirstOrDefault(u => u.Username == username);
+        //}
         public void CreateUser(User user)
         {
             _context.Users.Add(user);
             _context.SaveChanges();
+        }
+        public User? Authenticate(string username, string password)
+        {
+            User? userToAuthenticate = _context.Users.FirstOrDefault(u => u.Username == username && u.Password == password);
+            return userToAuthenticate;
         }
     }
 }

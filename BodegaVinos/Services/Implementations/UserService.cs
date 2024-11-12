@@ -13,11 +13,11 @@ namespace BodegaVinos.Services.Implementations
             _userRepository = userRepository;
         }
 
-        public bool validateUser(LoginDTO loginData)
-        {
-            var user = _userRepository.GetUserByUsername(loginData.Username);
-            return user != null && user.Password == loginData.Password;
-        }
+        //public bool validateUser(LoginDTO loginData)
+        //{
+        //    var user = _userRepository.GetUserByUsername(loginData.Username);
+        //    return user != null && user.Password == loginData.Password;
+        //}
 
         public void CreateUser(CreateUserDTO createUserDTO)
         {
@@ -27,6 +27,10 @@ namespace BodegaVinos.Services.Implementations
                 Password = createUserDTO.Password
             };
             _userRepository.CreateUser(user);
+        }
+        public User? Authenticate(string username, string password)
+        {
+            return _userRepository.Authenticate(username, password);
         }
     }
 }

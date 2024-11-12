@@ -2,6 +2,8 @@
 using BodegaVinos.Data.Repository;
 using BodegaVinos.Models.DTO;
 using BodegaVinos.Services.Implementations;
+using BodegaVinos.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,10 +11,11 @@ namespace BodegaVinos.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class WineController : ControllerBase
     {
-        private readonly WineService _wineService;
-        public WineController(WineService wineService)
+        private readonly IWineService _wineService;
+        public WineController(IWineService wineService)
         {
             _wineService = wineService;
         }

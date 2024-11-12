@@ -8,11 +8,12 @@ namespace BodegaVinos.Data.Entities
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public string Name { get; set; }
+        [Required]
+        public string Name { get; set; } = string.Empty;
         [ForeignKey("WineId")]
         public int WineId { get; set; }
         public Wine Wine { get; set; }
         public DateTime DateTime { get; set; }
-        public List<Guest> guests { get; set; }
+        public List<Guest> Guests { get; set; }
     }
 }

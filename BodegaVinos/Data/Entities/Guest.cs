@@ -12,5 +12,7 @@ namespace BodegaVinos.Data.Entities
         public string Name { get; set; } = string.Empty;
         [Required]
         public string Surname { get; set; } = string.Empty;
+        public int? CataId { get; set; }
+        public Cata Cata { get; set; }
     }
 }

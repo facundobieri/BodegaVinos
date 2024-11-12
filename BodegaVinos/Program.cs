@@ -20,7 +20,8 @@ namespace BodegaVinos
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
-            builder.Services.AddDbContext<BodegaDbContext>(options => options.UseSqlite(builder.Configuration["ConnectionStrings:DBConecctionString"]));
+            builder.Services.AddDbContext<BodegaDbContext>(dbContextOptions => dbContextOptions.UseSqlite(
+            builder.Configuration["ConnectionStrings:DBConnectionString"]));
             #region DependencyInjection
             builder.Services.AddScoped<IWineRepository, WineRepository>();
             builder.Services.AddScoped<IWineService, WineService>();

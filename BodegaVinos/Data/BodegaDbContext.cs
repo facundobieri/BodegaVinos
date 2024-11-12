@@ -14,16 +14,10 @@ namespace BodegaVinos.Data
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // Relación muchos a muchos entre Cata y Wine
             modelBuilder.Entity<Cata>()
-                .HasMany(c => c.wines)  // Una Cata puede tener muchos Wines
-                .WithMany(w => w.catas);  // Un Wine puede estar en muchas Catas
-
-            // Relación uno a muchos entre Cata y Guest
-            modelBuilder.Entity<Cata>()
-                .HasMany(c => c.guests)  // Una Cata puede tener muchos Guests
-                .WithOne(g => g.Cata)  // Cada Guest pertenece a una Cata
-                .HasForeignKey(g => g.CataId);  // El FK está en Guest
+            .HasOne(c => c.Wine)
+            .WithMany()
+            .HasForeignKey(c => c.WineId);
 
             base.OnModelCreating(modelBuilder);
         }

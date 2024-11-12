@@ -1,5 +1,6 @@
 ﻿using BodegaVinos.Models.DTO;
 using BodegaVinos.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,6 +8,7 @@ namespace BodegaVinos.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class CataController : ControllerBase
     {
         private readonly ICataService _cataService;

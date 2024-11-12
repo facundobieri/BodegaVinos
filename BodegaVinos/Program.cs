@@ -1,5 +1,6 @@
 
 using BodegaVinos.Data;
+using BodegaVinos.Data.Repositories;
 using BodegaVinos.Data.Repository;
 using BodegaVinos.Services.Implementations;
 using BodegaVinos.Services.Interfaces;
@@ -67,6 +68,8 @@ namespace BodegaVinos
             builder.Services.AddScoped<IWineService, WineService>();
             builder.Services.AddScoped<IUserRepository, UserRepository>();
             builder.Services.AddScoped<IUserService, UserService>();
+            builder.Services.AddScoped<ICataRepository, CataRepository>();
+            builder.Services.AddScoped<ICataService, CataService>();
             #endregion
             var app = builder.Build();
 

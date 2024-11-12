@@ -1,7 +1,8 @@
 # BodegaVinos API
 
 Esta API permite gestionar una bodega de vinos, incluyendo un sistema de catas
-Para el ejemplo de uso, se usara el User "Facundo" con contraseña "Facundo1234"
+Dentro de la base de dato ya existe un User con username "Facundo" con contraseña "Facundo1234"
+el mismo se utilizo solo para comprobar el uso del authenticate
 
 ## ENDPOINTS
 ### Authenticate
